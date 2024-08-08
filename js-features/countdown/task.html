@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../countdown/task.css">
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+    <title>Таймер обратного отсчёта</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            flex-direction: column;
+        }
+        .header, .content {
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #downloadButton {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #downloadButton:hover {
+            background-color: #45a049;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo__container">
+          <a href="https://netology.ru/" class="logo__link"></a>
+        </div>
+        <h1 class="header__title">
+            Домашнее задание к занятию 1.1 «Возможности JavaScript в браузере». Таймер обратного отсчёта
+        </h1>
+    </header>
+    <main class="content">
+        <div class="card">
+            <div id="status">
+                До окончания конкурса осталось секунд: <span id="timer">7</span>
+            </div>
+            <div class="button-container">
+                <button id="downloadButton">Забрать выйгрыш</button>
+            </div>
+        </div>
+    </main>    
+    <script src="../countdown/task.js"></script>
+</body>
+</html>
