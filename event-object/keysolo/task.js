@@ -4,9 +4,9 @@ class Game {
     this.wordElement = container.querySelector('.word');
     this.winsElement = container.querySelector('.status__wins');
     this.lossElement = container.querySelector('.status__loss');
+    this.timerElement = container.querySelector('.timer__value');
 
     this.reset();
-
     this.registerEvents();
   }
 
@@ -14,21 +14,26 @@ class Game {
     this.setNewWord();
     this.winsElement.textContent = 0;
     this.lossElement.textContent = 0;
+    clearInterval(this.timerElement);
   }
 
   registerEvents() {
-    /*
-      TODO:
-      Написать обработчик события, который откликается
-      на каждый введённый символ.
-      В случае правильного ввода символа вызываем this.success()
-      При неправильном вводе символа - this.fail();
-      DOM-элемент текущего символа находится в свойстве this.currentSymbol.
-     */
+    document.addEventListener('keyup', (event) => {
+      const enteredSymbol = String.fromCharCode(event.keyCode).toLowerCase();
+      const currentSymbolText = this.currentSymbol.textContent.toLowerCase();
+
+      if (enteredSymbol === currentSymbolText) {
+        this.success();
+      } else {
+        this.fail();
+      }
+    });
   }
 
   success() {
-    if(this.currentSymbol.classList.contains("symbol_current")) this.currentSymbol.classList.remove("symbol_current");
+    if (this.currentSymbol.classList.contains("symbol_current")) {
+      this.currentSymbol.classList.remove("symbol_current");
+    }
     this.currentSymbol.classList.add('symbol_correct');
     this.currentSymbol = this.currentSymbol.nextElementSibling;
 
@@ -56,6 +61,20 @@ class Game {
     const word = this.getWord();
 
     this.renderWord(word);
+
+    // ------------------------------------
+
+    this.startTime = Date.now();
+
+    this.timerInterval = setInterval(() => {
+      const elepsedTime = Date.now() - this.startTime;
+      const remainingTime = word.lenght - elepsedTime / 1000;
+      this.timerElement.textContent = remainingTime.toFixed(1);
+      if (remainingTime <= 0) {
+        this.fail();
+        clearInterval(this.timerInterval);
+      }
+    }, 100);
   }
 
   getWord() {

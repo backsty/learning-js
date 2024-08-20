@@ -1,3 +1,12 @@
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f0f0f0;
+}
+
 .tab__navigation {
   display: flex;
   justify-content: space-around;
@@ -8,17 +17,28 @@
 
 .tab {
   cursor: pointer;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  transition: background-color 0.3s ease;
 }
 
 .tab_active {
   color: blue;
+  background-color: #e0f2ff;
 }
 
 .tab__content {
   display: none;
   padding: 20px;
+  background-color: #f9f9f9;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
 }
+
 .tab__content_active {
   display: block;
+  opacity: 1;
 }
 
