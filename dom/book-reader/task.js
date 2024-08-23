@@ -57,13 +57,14 @@ function isActive(element) {
   * @param {number} index - Индекс текущего элемента.
 */
 function changeClassForBookContent(item, currentIndex, index) {
-    if (item.closest('div').classList.contains('book__control_font-size')) {
+    const controlDiv =  item.closest('div');
+    if (controlDiv?.classList.contains('book__control_font-size')) {
         fontSizeDict[index] ? bookContent.classList.toggle(fontSizeDict[index]) : '';
         fontSizeDict[currentIndex] ? bookContent.classList.toggle(fontSizeDict[currentIndex]) : '';
-    } else if (item.closest('div').classList.contains('book__control_color')) {
+    } else if (controlDiv?.classList.contains('book__control_color')) {
         fontColorDict[index] ? bookContent.classList.toggle(fontColorDict[index]) : '';
         fontColorDict[currentIndex] ? bookContent.classList.toggle(fontColorDict[currentIndex]) : '';
-    } else if (item.closest('div').classList.contains('book__control_background')) {
+    } else if (controlDiv?.classList.contains('book__control_background')) {
         backgroundColorDict[index] ? bookContent.classList.toggle(backgroundColorDict[index]) : '';
         backgroundColorDict[currentIndex] ? bookContent.classList.toggle(backgroundColorDict[currentIndex]) : '';
     };
@@ -81,12 +82,12 @@ function clickEvent(array) {
             let oldIndex = array.findIndex(isActive);
             let type = getAttributeType(item);
             if (type === 'color') {
-                array[oldIndex].classList.toggle('color_active');
+                array[oldIndex]?.classList.toggle('color_active');
                 item.classList.toggle('color_active');
                 changeClassForBookContent(item, oldIndex, index);
                 return false; 
             } else if (type === 'font_size') {
-                array[oldIndex].classList.toggle('font-size_active');
+                array[oldIndex]?.classList.toggle('font-size_active');
                 item.classList.toggle('font-size_active');
                 changeClassForBookContent(item, oldIndex, index);
                 return false;
