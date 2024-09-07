@@ -1,47 +1,185 @@
+/* CSS Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    line-height: 1;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: "Ubuntu", sans-serif;
+    background-image: url("background.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #000;
+    animation: rotate 6s infinite alternate linear;
+}
+
+@keyframes rotate {
+    100% {
+        background-position: 15% 50%;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+.header {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #f6f8f9;
+    border-radius: 1.25rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 12%;
+    margin-bottom: 10%;
+}
+
+.card {
+    width: 100%;
+    padding: 30px;
+    border-radius: 1.25rem;
+    background: #fff;
+    text-align: center;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
 .signin {
-  display: none;
+    display: none;
 }
+
 .signin_active {
-  display: block;
+    display: block;
 }
+
 .control {
     width: 100%;
-    display: block;
     padding: 10px 20px;
-    margin: 0 0 20px 0;
+    margin-bottom: 20px;
     font-family: Golos, Arial, sans-serif;
     border: 1px solid #e2e2e2;
+    border-radius: 1.25rem;
     box-sizing: border-box;
 }
 
 .btn {
-  font-family: Golos, Arial, sans-serif;
-  color: #fff;
-  background-color: #06f;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  box-sizing: border-box;
-  cursor: pointer;
-  display: inline-block;
-  margin: 0 0 20px 0;
-  overflow: hidden;
-  outline: none;
-  padding: 8px 12px;
-  text-align: center;
-  transition: 0.3s ease;
-  text-decoration: none;
-  user-select: none;
-  vertical-align: top;
-  white-space: nowrap;
-  font-weight: 500;
-  box-shadow: none;
+    font-family: Golos, Arial, sans-serif;
+    color: #fff;
+    background-color: #06f;
+    border: 1px solid transparent;
+    border-radius: 1.25rem;
+    cursor: pointer;
+    padding: 8px 12px;
+    text-align: center;
+    transition: 0.3s ease;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background-color: #005ce6;
 }
 
 .welcome {
-  display: none;
+    display: none;
+    margin-top: 50px;
 }
 
 .welcome_active {
-  display: block;
-  text-align: center;
+    display: block;
+    text-align: center;
+}
+
+#logout-button {
+    margin-top: 20px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+form > input, form > button {
+    width: 100%;
+    height: 50px;
+    padding: 0 16px;
+    border-radius: 1.25rem;
+    transition: all 0.375s;
+}
+
+form > input {
+    border: 2px solid #ebebeb;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+form > input:hover {
+    border: 2px solid #10449A;
+}
+
+form > button {
+    cursor: pointer;
+    background: #216ce7;
+    color: #f9f9f9;
+    border: 0;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+form > button:hover {
+    background: #10449A;
+}
+
+form > a {
+    color: #216ce7;
+    font-size: 0.9rem;
+    text-align: left;
+    text-decoration: none;
+    margin-bottom: 6px;
+    transition: all 0.375s;
+}
+
+form > a:hover {
+    color: #10449A;
+}
+
+@media (min-width: 500px) {
+    .content {
+        max-width: 400px;
+    }
 }

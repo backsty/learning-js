@@ -1,3 +1,23 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+
+    // Цвет комментариев
+    "editor.tokenColorCustomizations": {
+        "comments": "#00ff00"
+    },
+
+    // Рендеринг миникарты
+    "editor.minimap.renderCharacters": false,
+
+    // ESLint
+    "eslint.packageManager": "npm",
+    "eslint.format.enable": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.formatOnSave": true,
+
+    // КУРСОР
+    "editor.cursorBlinking": "expand", 
+    "editor.cursorStyle": "line",
+    "editor.cursorWidth": 2,
+    "editor.cursorSmoothCaretAnimation": true,
 }
